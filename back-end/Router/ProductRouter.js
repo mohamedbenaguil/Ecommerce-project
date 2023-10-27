@@ -1,0 +1,10 @@
+const express = require("express")
+const { getProduct, deleteProduct, updateProduct, addproduct, getoneproduct } = require("../Controller/productController")
+const { isAuth } = require("../Middleware/IsAuth")
+const ProductRouter = express.Router()
+ProductRouter.post("/addproduct",isAuth,addproduct)
+ProductRouter.get("/allproducts",getProduct)
+ProductRouter.delete("/deleteproduct/:id",deleteProduct)
+ProductRouter.put("/updateproduct/:id",updateProduct)
+ProductRouter.get("/oneproduct/:id",getoneproduct)
+module.exports= ProductRouter
